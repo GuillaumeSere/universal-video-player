@@ -186,7 +186,7 @@ npm run build
 
 ## 📄 License
 
-MIT © Guillaume Tech
+MIT © Guillaume SERE
 
 ---
 
