@@ -1,6 +1,6 @@
 {
     "name": "universal-video-player",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Lightweight universal video player for web and smart TVs. Supports MP4, HLS (.m3u8), and DASH (.mpd) with a simple JavaScript API.",
     "main": "dist/index.mjs",
     "scripts": {
