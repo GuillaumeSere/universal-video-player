@@ -5,7 +5,8 @@
     "main": "dist/index.mjs",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "tsup src/index.ts --format esm",
+        "build": "tsup src/index.ts --format esm --dts",
+        "postbuild": "node -e \"const fs=require('fs'); fs.copyFileSync('dist/index.js','dist/index.mjs');\"",
         "dev": "vite --open"
     },
     "keywords": [

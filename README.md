@@ -35,6 +35,11 @@ Different formats require different solutions:
 ## 🚀 Features
 
 * 🎥 Multi-format support (MP4, HLS, DASH)
+* 🔥 **NEW:** Subtitles support (WebVTT)
+* 📺 **NEW:** Fullscreen mode
+* 🎮 **NEW:** Custom controls with modern UX
+* 💥 **NEW:** Quality selector for HLS streams
+* 🎪 **NEW:** Event system (onPlay, onPause, onTimeUpdate, etc.)
 * ⚡ Simple and clean API
 * 📺 Compatible with Smart TVs (browser-based)
 * 🧠 TypeScript support
@@ -109,13 +114,97 @@ player.mount("#app")
 
 ---
 
+## 🔥 Advanced Features
+
+### 🎬 Subtitles (WebVTT)
+
+```ts id="subtitles-example"
+const player = new VideoPlayer({
+  src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+  subtitles: [
+    {
+      src: "./subtitles-fr.vtt",
+      label: "Français",
+      language: "fr",
+      default: true
+    },
+    {
+      src: "./subtitles-en.vtt",
+      label: "English",
+      language: "en"
+    }
+  ]
+})
+
+player.mount("#app")
+```
+
+### 📺 Fullscreen Mode
+
+```ts id="fullscreen-example"
+const player = new VideoPlayer({
+  src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+  enableFullscreen: true
+})
+
+player.mount("#app")
+```
+
+### 🎮 Custom Controls
+
+```ts id="custom-controls-example"
+const player = new VideoPlayer({
+  src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+  customControls: true, // Replaces native controls with custom UI
+  controls: false       // Disable native controls
+})
+
+player.mount("#app")
+```
+
+### 💥 Quality Selector (HLS)
+
+```ts id="quality-example"
+const player = new VideoPlayer({
+  src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+  customControls: true // Quality selector appears in custom controls
+})
+
+player.mount("#app")
+```
+
+### 🎪 Event System
+
+```ts id="events-example"
+const player = new VideoPlayer({
+  src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+  onPlay: () => console.log("Video started playing"),
+  onPause: () => console.log("Video paused"),
+  onTimeUpdate: (currentTime) => console.log(`Current time: ${currentTime}s`),
+  onLoadedData: () => console.log("Video loaded successfully"),
+  onError: (error) => console.error("Video error:", error)
+})
+
+player.mount("#app")
+```
+
+---
+
 ## ⚙️ Options
 
-```ts id="7caxrq"
+```ts id="options-example"
 const player = new VideoPlayer({
-  src: "video.mp4",
-  autoplay: true,
-  controls: true
+  src: "video.mp4",           // Video source URL
+  autoplay: true,             // Auto-play on load
+  controls: true,             // Show native controls
+  customControls: false,      // Use custom controls UI
+  enableFullscreen: false,    // Enable fullscreen button
+  subtitles: [...],           // Array of subtitle tracks
+  onPlay: () => {},           // Play event callback
+  onPause: () => {},          // Pause event callback
+  onTimeUpdate: (time) => {}, // Time update callback
+  onLoadedData: () => {},     // Loaded data callback
+  onError: (error) => {}      // Error callback
 })
 ```
 
@@ -135,9 +224,25 @@ Start playback.
 
 Pause playback.
 
+### `setVolume(volume: number)`
+
+Set audio volume (0.0 to 1.0).
+
+### `getCurrentTime(): number`
+
+Get current playback time in seconds.
+
+### `setCurrentTime(time: number)`
+
+Seek to specific time in seconds.
+
+### `getDuration(): number`
+
+Get video duration in seconds.
+
 ### `destroy()`
 
-Remove the player.
+Remove the player and clean up resources.
 
 ---
 
@@ -186,7 +291,7 @@ npm run build
 
 ## 📄 License
 
-MIT © Guillaume Tech
+MIT © Guillaume SERE
 
 ---
 

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Démo - Universal Video Player</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <div class="demo-container">
+    <header class="demo-header">
+      <h1>🎬 Universal Video Player - Démo</h1>
+      <p>Découvrez toutes les fonctionnalités avancées du lecteur vidéo</p>
+      <a href="index.html" class="back-link">← Retour à l'accueil</a>
+    </header>
+
+    <main class="demo-content">
+      <section class="demo-section">
+        <h2>🔥 Features Implémentées</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎬</div>
+            <h3>Sous-titres VTT</h3>
+            <p>Support complet des sous-titres WebVTT avec sélection multiple</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📺</div>
+            <h3>Mode Plein Écran</h3>
+            <p>Contrôle fullscreen intégré avec API native</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎮</div>
+            <h3>Contrôles Personnalisés</h3>
+            <p>Interface moderne remplaçant les contrôles natifs</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💥</div>
+            <h3>Sélecteur de Qualité</h3>
+            <p>Changement de qualité en temps réel pour HLS</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎪</div>
+            <h3>Système d'Événements</h3>
+            <p>Callbacks pour tous les événements vidéo</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>🎥 Lecteur de Démo</h2>
+        <p class="demo-description">
+          Ce lecteur démontre toutes les fonctionnalités : contrôles personnalisés, sous-titres,
+          fullscreen, sélecteur de qualité, et système d'événements.
+        </p>
+
+        <div class="video-container">
+          <div id="demo-player"></div>
+        </div>
+
+        <div class="demo-controls">
+          <button id="play-btn" class="demo-btn demo-btn-primary">▶️ Lire</button>
+          <button id="pause-btn" class="demo-btn demo-btn-secondary">⏸️ Pause</button>
+          <button id="volume-btn" class="demo-btn demo-btn-secondary">🔊 Volume</button>
+        </div>
+
+        <div class="event-log">
+          <h3>📋 Journal des Événements</h3>
+          <div id="event-log-content" class="event-log-content">
+            <div class="event-item">En attente d'événements...</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>💻 Code d'Exemple</h2>
+        <div class="code-example">
+          <pre><code>const player = new VideoPlayer({
+  src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+  autoplay: false,
+  controls: false,
+  customControls: true,
+  enableFullscreen: true,
+  subtitles: [
+    {
+      src: "./sample-subtitles.vtt",
+      label: "Français",
+      language: "fr",
+      default: true
+    }
+  ],
+  onPlay: () => console.log("Video started playing"),
+  onPause: () => console.log("Video paused"),
+  onTimeUpdate: (currentTime) => console.log(`Current time: ${currentTime}s`),
+  onLoadedData: () => console.log("Video loaded"),
+  onError: (error) => console.error("Video error:", error)
+})
+
+player.mount("#demo-player")</code></pre>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="demo.js"></script>
+</body>
+</html>

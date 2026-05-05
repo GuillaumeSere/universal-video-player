@@ -137,6 +137,76 @@
         display: block;
       }
 
+      /* Custom Controls Styles */
+      .custom-controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .custom-controls button {
+        background: rgba(0,0,0,0.7);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 4px;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.2s;
+      }
+
+      .custom-controls button:hover {
+        background: rgba(255,255,255,0.1);
+      }
+
+      .progress-container {
+        flex: 1;
+        height: 4px;
+        background: rgba(255,255,255,0.3);
+        border-radius: 2px;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: #e50914;
+        border-radius: 2px;
+        width: 0%;
+        transition: width 0.1s;
+      }
+
+      .time-display {
+        color: white;
+        font-size: 14px;
+        min-width: 80px;
+        text-align: center;
+        font-family: monospace;
+      }
+
+      .quality-selector,
+      .subtitle-selector {
+        background: rgba(0,0,0,0.7);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 4px;
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+
+      .player-container:hover .custom-controls {
+        opacity: 1;
+      }
+
       .section {
         padding: 0 40px 40px;
       }
@@ -210,9 +280,7 @@
       <div class="logo">UniPlayer</div>
       <nav class="nav-links">
         <a href="#">Accueil</a>
-        <a href="#">Séries</a>
-        <a href="#">Films</a>
-        <a href="#">Nouveautés</a>
+        <a href="demo.html">🎬 Démo</a>
       </nav>
     </header>
 
@@ -222,11 +290,12 @@
           <span class="eyebrow">Jeu d’exemple</span>
           <h1>Regardez n’importe quelle source vidéo directement dans le navigateur</h1>
           <p>
-            Une interface inspirée de Netflix pour présenter votre lecteur universel. Lancez une vidéo HLS, DASH ou MP4 en un clic et testez la compatibilité avec le maximum de plateformes.
+            Une interface inspirée de Netflix pour présenter votre lecteur universel. Lancez une vidéo HLS, DASH ou MP4 en un clic et testez la compatibilité avec le maximum de plateformes. Découvrez toutes les fonctionnalités avancées dans notre <strong>démo interactive</strong>.
           </p>
           <div class="hero-actions">
             <button class="button button-primary" id="play-button">Lire maintenant</button>
             <button class="button button-secondary" id="pause-button">Pause</button>
+            <button class="button button-secondary" id="demo-button">🎬 Voir la démo complète</button>
           </div>
         </div>
 
@@ -276,6 +345,11 @@
 
       document.getElementById("play-button")?.addEventListener("click", () => player.play())
       document.getElementById("pause-button")?.addEventListener("click", () => player.pause())
+
+      // Redirection vers la démo
+      document.getElementById("demo-button")?.addEventListener("click", () => {
+        window.location.href = "demo.html"
+      })
     </script>
   </body>
 </html>

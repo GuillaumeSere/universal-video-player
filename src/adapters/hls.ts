@@ -5,7 +5,9 @@ export async function loadHLS(video: HTMLVideoElement, src: string) {
     const hls = new Hls()
     hls.loadSource(src)
     hls.attachMedia(video)
+    return hls
   } else {
     video.src = src
+    return null
   }
 }
