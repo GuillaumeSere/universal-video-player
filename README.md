@@ -50,7 +50,7 @@ Different formats require different solutions:
 
 ## 📦 Installation
 
-```bash id="b1b9m1"
+```
 npm install universal-video-player
 ```
 
@@ -58,7 +58,7 @@ npm install universal-video-player
 
 ## ⚡ Quick Start
 
-```ts id="4qkb2g"
+```
 import { VideoPlayer } from "universal-video-player"
 
 const player = new VideoPlayer({
@@ -73,7 +73,7 @@ player.mount("#app")
 
 ## 🎬 HTML Setup
 
-```html id="y1lj7n"
+```
 <div id="app"></div>
 ```
 
@@ -91,7 +91,7 @@ player.mount("#app")
 
 ## ⚡ HLS Example
 
-```ts id="n3yq4t"
+```
 const player = new VideoPlayer({
   src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
   autoplay: true
@@ -104,7 +104,7 @@ player.mount("#app")
 
 ## ⚡ DASH Example
 
-```ts id="k8pq1n"
+```
 const player = new VideoPlayer({
   src: "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd"
 })
@@ -118,7 +118,7 @@ player.mount("#app")
 
 ### 🎬 Subtitles (WebVTT)
 
-```ts id="subtitles-example"
+```
 const player = new VideoPlayer({
   src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
   subtitles: [
@@ -141,7 +141,7 @@ player.mount("#app")
 
 ### 📺 Fullscreen Mode
 
-```ts id="fullscreen-example"
+```
 const player = new VideoPlayer({
   src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
   enableFullscreen: true
@@ -152,7 +152,7 @@ player.mount("#app")
 
 ### 🎮 Custom Controls
 
-```ts id="custom-controls-example"
+```
 const player = new VideoPlayer({
   src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
   customControls: true, // Replaces native controls with custom UI
@@ -175,7 +175,7 @@ player.mount("#app")
 
 ### 🎪 Event System
 
-```ts id="events-example"
+```
 const player = new VideoPlayer({
   src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
   onPlay: () => console.log("Video started playing"),
@@ -192,7 +192,7 @@ player.mount("#app")
 
 ## ⚙️ Options
 
-```ts id="options-example"
+```
 const player = new VideoPlayer({
   src: "video.mp4",           // Video source URL
   autoplay: true,             // Auto-play on load
@@ -248,7 +248,7 @@ Remove the player and clean up resources.
 
 ## 🏗 Architecture
 
-```text id="m7pl0k"
+```
 VideoPlayer
  ├── Native (MP4)
  ├── HLS (hls.js)
@@ -282,7 +282,7 @@ Works on:
 
 ## 🛠 Development
 
-```bash id="6b6b6d"
+```
 npm install
 npm run build
 ```

@@ -58,7 +58,7 @@ Ouvrez `demo.html` dans votre navigateur pour voir toutes les fonctionnalités e
 
 Le code source complet du lecteur est disponible dans le dossier `src/`. La démonstration utilise toutes les options disponibles :
 
-```javascript
+```
 const player = new VideoPlayer({
   src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
   autoplay: false,
